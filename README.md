@@ -15,7 +15,9 @@ PCM (Processing Control and Data Management) layer.
 
 | Repo | Role | Criticality | Last reviewed |
 |------|------|-------------|---------------|
-| *(none yet — run `document repo <name>` to add entries)* | | | |
+| [GRQ2](wiki/repos/grq2.md) | GeoRegionQuery — Flask/OpenSearch data-catalog and dataset-metadata API | P1 | 2026-06-08 |
+| [HySDS](wiki/repos/hysds.md) | Core HySDS library — Celery workers (job_worker, task_worker), orchestrator, user-rules engine, container factory | P1 | 2026-06-08 |
+| [Mozart](wiki/repos/mozart.md) | Central job-orchestration hub: REST API, RabbitMQ, Redis, OpenSearch job-status index | P1 | 2026-06-08 |
 
 ---
 
@@ -39,7 +41,8 @@ PCM (Processing Control and Data Management) layer.
 
 | Risk | Severity | Likelihood | Owner | Status |
 |------|----------|------------|-------|--------|
-| *(none yet)* | | | | |
+| [RISK-001: Dual ES/OpenSearch transition in hysds](wiki/risks/RISK-001-dual-es-opensearch-transition.md) | Medium | Medium | hysds-core team | Open |
+| [RISK-002: ARM64 cgroups v2 job-status overflow (HC-630)](wiki/risks/RISK-002-arm64-cgroups-v2-overflow.md) | High | Medium | hysds-core team | Mitigated |
 
 ---
 
