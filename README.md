@@ -15,6 +15,7 @@ PCM (Processing Control and Data Management) layer.
 
 | Repo | Role | Criticality | Last reviewed |
 |------|------|-------------|---------------|
+| [Chimera](repos/chimera.md) | Rule-based event-driven workflow engine — evaluates preconditions against GRQ2 catalog, constructs PGE job payloads via hysds_commons, and submits jobs to Mozart | P1 | 2026-06-08 |
 | [GRQ2](repos/grq2.md) | GeoRegionQuery — Flask/OpenSearch data-catalog and dataset-metadata API | P1 | 2026-06-08 |
 | [HySDS](repos/hysds.md) | Core HySDS library — Celery workers (job_worker, task_worker), orchestrator, user-rules engine, container factory | P1 | 2026-06-08 |
 | [HySDS Commons](repos/hysds_commons.md) | Shared Python library providing job-submission helpers, OpenSearch/ES client wrappers, and schema validation used by mozart, chimera, and other components | P1 | 2026-06-08 |
