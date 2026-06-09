@@ -56,3 +56,43 @@ node. They are not federated into a single cluster.
 
 **Decision to record:** Why separate instances vs a shared cluster, and what this
 means for cross-node queries (currently done via REST, not cross-cluster search).
+
+---
+
+## CAND-006: Circular runtime dependency between `hysds` and `hysds_commons`
+
+**Implied by:** `hysds_commons` imports `hysds.celery.app` and `hysds.do_submit_job`,
+while `hysds`-family components (and `hysds` itself, via `hysds_commons>=0.1`) import
+`hysds_commons`. The cycle is resolved only at runtime (`repos/hysds_commons.md`,
+`repos/hysds.md`). Already noted as a coupling risk in ADR-001.
+
+**Decision to record:** Whether the circular import is an accepted, deliberate design
+(shared Celery app singleton) or a debt to be broken; the import-ordering constraints
+it imposes; and why job-submission primitives live in `hysds_commons` rather than `hysds`.
+
+---
+
+## CAND-007: Browser-direct OpenSearch access from hysds_ui
+
+**Implied by:** `hysds_ui` (Tosca/Figaro) issues OpenSearch queries straight from the
+browser to `/grq_es` (`grq` index) and `/mozart_es` (`job_status` index) via
+ReactiveSearch — there is no server-side API mediating these queries
+(`repos/hysds_ui.md`). Access control and query safety depend entirely on the fronting
+reverse proxy.
+
+**Decision to record:** Why query access is exposed client-side rather than behind a
+REST API, what the trust-boundary assumptions are (proxy auth/allow-listing), and the
+security implications of anyone who can reach the UI reaching the raw query endpoints.
+
+---
+
+## CAND-008: SciFlo as Chimera's workflow execution engine
+
+**Implied by:** Chimera's `run_sciflo.py` loads `.sf.xml` DAG workflows and hands them
+to SciFlo's engine to drive the PGE three-step pattern; SciFlo's parallel work units
+have no self-contained AMQP config and assume a hysds `celeryconfig.py` on the path
+(`repos/chimera.md`, `repos/sciflo.md`).
+
+**Decision to record:** Why a separate XML-DAG workflow engine (SciFlo, a legacy
+mixed-vintage codebase) underpins Chimera rather than Chimera orchestrating Celery jobs
+directly, and the coupling/maintenance implications of the SciFlo→hysds AMQP dependency.
