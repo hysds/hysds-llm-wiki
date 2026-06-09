@@ -44,7 +44,7 @@ Osaka has no REST API, no Celery queues, and no OpenSearch indices of its own. I
 
 ### Locking & cooperation
 
-`osaka.lock.Lock` writes an interlock file (`<name>.osaka.locked.json`, template in `lock.py`) tagged with the host FQDN and PID. `osaka.cooperator.Cooperator` lets two concurrent Osaka instances cooperate on the same destination rather than duplicate a transfer — the second instance defers to the primary that holds the lock. Atomicity relies on each backend's `put` being atomic.
+`osaka.lock.Lock` writes an interlock file (`&lt;name>.osaka.locked.json`, template in `lock.py`) tagged with the host FQDN and PID. `osaka.cooperator.Cooperator` lets two concurrent Osaka instances cooperate on the same destination rather than duplicate a transfer — the second instance defers to the primary that holds the lock. Atomicity relies on each backend's `put` being atomic.
 
 ## Dependencies
 

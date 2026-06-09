@@ -63,15 +63,15 @@ SSH via fab-classic; configuration and scripts delivered as Jinja2 templates fro
 | Dependency | Type | Purpose |
 |------------|------|---------|
 | PyYAML (>=5.1) | runtime | Read/write the `~/.sds/config` cluster YAML |
-| Jinja2 (>=3.0,<4.0) | runtime | Render deployment templates in `adapters/hysds/files/` |
+| Jinja2 (>=3.0,&lt;4.0) | runtime | Render deployment templates in `adapters/hysds/files/` |
 | fab-classic (>=1.19.2) | runtime | Remote command execution over SSH (Fabric) |
-| prompt-toolkit (>=1.0,<2.0) | runtime | Interactive `sds configure` prompts |
+| prompt-toolkit (>=1.0,&lt;2.0) | runtime | Interactive `sds configure` prompts |
 | Pygments, tqdm, backoff, requests | runtime | Output formatting, progress, retries, HTTP |
 | boto3 / awscli (>=1.11 / >=1.17) | infra | AWS provisioning and S3 interaction |
 | GCP / Azure SDKs | infra | Cloud provisioning (`sdscli/cloud/{gcp,azure}`) |
 | kombu (>=4.5) | runtime | RabbitMQ interaction (reset/status) |
 | redis (>=3.2) | runtime | Redis interaction (reset/status) |
-| elasticsearch (>=7.0,<7.14) / elasticsearch-dsl (>=7.0,<=7.4) | runtime | OpenSearch/Elasticsearch index init and queries |
+| elasticsearch (>=7.0,&lt;7.14) / elasticsearch-dsl (>=7.0,&lt;=7.4) | runtime | OpenSearch/Elasticsearch index init and queries |
 
 Dependency edge (per `dependencies/inventory.md`): **sdscli → all PCM hosts** via SSH, for config deployment over Fabric.
 
@@ -82,7 +82,7 @@ Dependency edge (per `dependencies/inventory.md`): **sdscli → all PCM hosts** 
 
 ## Known constraints / risks
 
-- **Pinned/aging client libraries.** `elasticsearch<7.14` and `prompt-toolkit<2.0` are hard upper bounds; OpenSearch server compatibility is constrained accordingly. `setuptools` is pinned `<80.0.0` (HC-568) for the Python 3.12 build.
+- **Pinned/aging client libraries.** `elasticsearch&lt;7.14` and `prompt-toolkit&lt;2.0` are hard upper bounds; OpenSearch server compatibility is constrained accordingly. `setuptools &lt;80.0.0` (HC-568) for the Python 3.12 build.
 - **Secrets in plaintext config.** `~/.sds/config` holds RabbitMQ/Redis passwords, cloud keys, and OAuth tokens in plaintext. Operator-host hygiene matters.
 - **SSH/Fabric blast radius.** A single `sds orch` invocation acts on every PCM host; a bad config or template change propagates cluster-wide.
 - **In-flight migrations.** Recent work moves Verdi off the default OPS user and onto Podman (HC-522), enables HTTPS for RabbitMQ reset and Data-in-Transit (HC-530/HC-539), and migrates Kibana → OpenSearch Dashboards (HC-490). Templates and behavior are actively changing across these flags.

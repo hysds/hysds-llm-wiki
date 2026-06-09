@@ -23,7 +23,7 @@ Chimera is **not a standalone long-running service**. It runs as a triggered pro
 - Workflow definitions: `chimera/wf_xml/` (e.g., `sample.sf.xml`, plus `examples/`).
 
 ### Job submission (to Mozart)
-`chimera/pge_job_submitter.py` (`PgeJobSubmitter`) constructs the job payload using `hysds_commons.job_utils.resolve_hysds_job`, then submits it. Job type and queue are resolved per PGE from the Chimera config via the `JOB_TYPES` and `JOB_QUEUES` maps keyed on `pge_name`; the job type is formed as `<job_name>:<release_version>`.
+`chimera/pge_job_submitter.py` (`PgeJobSubmitter`) constructs the job payload using `hysds_commons.job_utils.resolve_hysds_job`, then submits it. Job type and queue are resolved per PGE from the Chimera config via the `JOB_TYPES` and `JOB_QUEUES` maps keyed on `pge_name`; the job type is formed as `&lt;job_name>:&lt;release_version>`.
 
 ### Precondition / catalog evaluation
 `chimera/precondition_evaluator.py` + `precondition_functions.py` evaluate preconditions (data availability) before proceeding, querying the GRQ2 catalog. `chimera/input_preprocessor.py` handles input pre-processing.
@@ -39,8 +39,8 @@ Chimera consumes the GRQ2 catalog for precondition checks via `elasticsearch` / 
 | Dependency | Type | Purpose |
 |------------|------|---------|
 | `hysds` / `hysds_commons` | runtime (library) | Wraps PGE execution using HySDS worker primitives; `resolve_hysds_job` builds the job payload |
-| `elasticsearch>=7.10,<8` | runtime | Query GRQ2 catalog for precondition evaluation |
-| `elasticsearch-dsl>=7.4,<8` | runtime | DSL queries against catalog indices |
+| `elasticsearch>=7.10,&lt;8` | runtime | Query GRQ2 catalog for precondition evaluation |
+| `elasticsearch-dsl>=7.4,&lt;8` | runtime | DSL queries against catalog indices |
 | `requests>=2.28` | runtime | HTTP calls (e.g., Mozart job submission) |
 | `simplejson>=3.18` | runtime | JSON serialization |
 | `PyYAML>=6.0` | runtime | Parse Chimera and PGE config YAML files |
@@ -64,7 +64,7 @@ Never commit secret values to these files.
 - **Subclass contract is enforced by convention, not the type system.** The `preprocessor` and `job_submitter` classes named in `chimera_config.yaml` must subclass `PreConditionFunctions` / `PgeJobSubmitter` respectively. Misconfiguration surfaces only at runtime when the SciFlo workflow loads the class.
 - **Tight coupling to HySDS job payload format.** `PgeJobSubmitter` depends on `hysds_commons.job_utils.resolve_hysds_job`; breaking changes to that payload contract or to Mozart's submit API directly affect Chimera.
 - **Release version resolution has two sources.** Job type version comes from `context[RELEASE_VERSION]` if present, otherwise from `container_specification.version`; an unset/mismatched version yields a wrong `job_type` (`name:version`) and a failed or misrouted submission.
-- **Recent Python 3.12 migration.** The repo recently completed a Python 3.12 upgrade (formatting/modernization, dependency bumps, new unit tests for constants and config utilities). Elasticsearch client is pinned to 7.x (`<8.0.0`), which constrains compatibility with newer OpenSearch/Elasticsearch clusters.
+- **Recent Python 3.12 migration.** The repo recently completed a Python 3.12 upgrade (formatting/modernization, dependency bumps, new unit tests for constants and config utilities). Elasticsearch client is pinned to 7.x (`&lt;8.0.0`), which constrains compatibility with newer OpenSearch/Elasticsearch clusters.
 
 ## Open questions
 

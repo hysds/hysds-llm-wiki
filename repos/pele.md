@@ -79,7 +79,7 @@ prod) with **Flask-Migrate** for schema migrations. Passwords are hashed with
 
 | Dependency | Type | Purpose |
 |------------|------|---------|
-| Flask (`<2.3.0`) | runtime | Web framework; pinned `<2.3.0` to work around a Flask-DebugToolbar import error |
+| Flask (`&lt;2.3.0`) | runtime | Web framework; pinned `&lt;2.3.0` to work around a Flask-DebugToolbar import error |
 | flask-restx (`>=0.5.1`) | runtime | REST resources + Swagger surface |
 | gunicorn + gevent + eventlet | runtime | WSGI server with async workers |
 | supervisor | runtime/infra | Process management |
@@ -91,11 +91,11 @@ prod) with **Flask-Migrate** for schema migrations. Passwords are hashed with
 | Flask-Cors | runtime | CORS handling |
 | Flask-Mail | runtime | Verification emails |
 | simpleldap | runtime | LDAP authentication support |
-| elasticsearch (`>=7.0.0,<7.14.0`) | runtime | ES client for catalog queries |
-| elasticsearch-dsl (`>=7.0.0,<7.4.0`) | runtime | Query DSL helper |
-| opensearch-py (`>=2.3.0,<3.0.0`) | runtime | OpenSearch client (HC-484) |
+| elasticsearch (`>=7.0.0,&lt;7.14.0`) | runtime | ES client for catalog queries |
+| elasticsearch-dsl (`>=7.0.0,&lt;7.4.0`) | runtime | Query DSL helper |
+| opensearch-py (`>=2.3.0,&lt;3.0.0`) | runtime | OpenSearch client (HC-484) |
 | shapely / pyshp | runtime | Geospatial query support |
-| werkzeug (`<3.0.0`) | runtime | Pinned to avoid `url_quote` import breakage |
+| werkzeug (`&lt;3.0.0`) | runtime | Pinned to avoid `url_quote` import breakage |
 | GRQ OpenSearch | infra | Backing catalog/product index store (read-only) |
 | PostgreSQL | infra | Production user store |
 
@@ -110,8 +110,8 @@ index name(s) the catalog API targets.
 
 ## Known constraints / risks
 
-- **Version pins as workarounds.** `Flask<2.3.0` (Flask-DebugToolbar import
-  error) and `werkzeug<3.0.0` (`url_quote` import breakage) are deliberate
+- **Version pins as workarounds.** `Flask&lt;2.3.0` (Flask-DebugToolbar import
+  error) and `werkzeug&lt;3.0.0` (`url_quote` import breakage) are deliberate
   kluges noted in `setup.py`. Upgrading Flask requires resolving both, and
   `Flask-Migrate` may need a coordinated bump in `sdscli` (per inline TODO).
 - **Dual-version search clients.** Pele carries both `elasticsearch` (7.x) and
