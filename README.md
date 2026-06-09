@@ -34,6 +34,7 @@ PCM (Processing Control and Data Management) layer.
 | ADR | Title | Status | Date |
 |-----|-------|--------|------|
 | [ADR-001](decisions/ADR-001-hysds-commons-runtime-circular-dependency.md) | hysds_commons runtime circular dependency on hysds | Accepted | 2026-06-08 |
+| [ADR-002](decisions/ADR-002-podman-rest-api-socket-container-engine.md) | Podman REST API socket as the alternative container engine for HySDS verdi workers | Accepted | 2026-06-08 |
 
 ---
 
@@ -49,8 +50,9 @@ PCM (Processing Control and Data Management) layer.
 
 | Risk | Severity | Likelihood | Owner | Status |
 |------|----------|------------|-------|--------|
-| [RISK-001: Dual ES/OpenSearch transition in hysds](risks/RISK-001-dual-es-opensearch-transition.md) | Medium | Medium | hysds-core team | Open |
 | [RISK-002: ARM64 cgroups v2 job-status overflow (HC-630)](risks/RISK-002-arm64-cgroups-v2-overflow.md) | High | Medium | hysds-core team | Mitigated |
+| [RISK-003: Concurrent dataset-publish race in bulk ingest (HC-575)](risks/RISK-003-concurrent-dataset-publish-race-bulk-ingest.md) | Medium-High | Low-Medium | hysds-core team | Mitigated |
+| [RISK-001: Dual ES/OpenSearch transition in hysds](risks/RISK-001-dual-es-opensearch-transition.md) | Medium | Medium | hysds-core team | Open |
 
 ---
 
