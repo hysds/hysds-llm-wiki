@@ -8,6 +8,12 @@
 **Repo:** `hysds-core/hysds_commons` (`github.jpl.nasa.gov/hysds-org/hysds_commons`)  
 **Last reviewed:** 2026-06-08
 
+## Architecture diagram
+
+![hysds_commons core architecture](/img/diagrams/hysds_commons-core-architecture.svg)
+
+*Source: `hysds_commons/hysds_commons_core_architecture.drawio.xml` (draw.io), exported to SVG.*
+
 ## Role in HySDS
 
 `hysds_commons` is a **shared utility library**, not a standalone service. It provides a consistent, high-level interface for the operations HySDS components have in common — most importantly resolving a job type into a complete job JSON payload (`resolve_hysds_job`) and submitting jobs either directly to the message queue or via the Mozart REST API. It also bundles the Elasticsearch/OpenSearch client wrappers (`SearchUtility` and its `ElasticsearchUtility` / `OpenSearchUtility` subclasses) that other components use to query the PCM data catalogs, plus JSON-schema validation for `hysds-io` and `job-spec` documents. It sits underneath Mozart, Chimera, and the worker tooling in the PCM topology as a foundational dependency rather than a node in the runtime graph.

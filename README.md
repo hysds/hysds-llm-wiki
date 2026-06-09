@@ -58,6 +58,7 @@ PCM (Processing Control and Data Management) layer.
 
 ## Quick navigation
 
+- [System architecture & flows](architecture.md) — cluster-wide and job/data flow diagrams
 - [Glossary](standards/glossary.md) — HySDS acronyms and terms
 - [Knowledge capture standards](standards/knowledge-capture.md) — how this wiki is written
 - [Dependency overview](dependencies/README.md) — service graph and topology

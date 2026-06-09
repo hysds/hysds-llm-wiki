@@ -9,6 +9,12 @@
 **Version:** 2.0.0  
 **Last reviewed:** 2026-06-08
 
+## Architecture diagram
+
+![sdscli core architecture](/img/diagrams/sdscli-core-architecture.svg)
+
+*Source: `sdscli/sdscli_core_architecture.drawio.xml` (draw.io), exported to SVG.*
+
 ## Role in HySDS
 
 `sdscli` is the Infrastructure-as-Code and administrative control plane for HySDS. It is not a data-facing client; it is the operator tool that stands up and maintains a cluster's PCM hosts — **Mozart**, **GRQ**, **Metrics**, **Factotum**, **CI**, and **Verdi** workers. It interactively gathers cluster configuration (`sds configure`), generates the cluster YAML at `~/.sds/config`, and then deploys, starts, stops, updates, and reports status across every host over SSH. It sits above all other documented repos: it is what installs and configures them.

@@ -8,6 +8,12 @@
 **Repo:** `hysds/osaka` (https://github.com/hysds/osaka)  
 **Last reviewed:** 2026-06-08
 
+## Architecture diagram
+
+![Osaka core architecture](/img/diagrams/osaka-core-architecture.svg)
+
+*Source: `osaka/.claude/osaka_core_architecture.drawio` (draw.io), exported to SVG.*
+
 ## Role in HySDS
 
 Osaka is a thin abstraction layer over heterogeneous object stores. A caller hands it an "Osaka URI" (e.g. `s3://`, `file://`, `https://`, `dav://`, `azure://`, `gs://`) and a local path; Osaka inspects the URI scheme and dispatches to the matching backend handler to `get`, `put`, `rm`, `size`, `list`, or check `exists`. In the PCM topology it sits underneath the job-execution layer: PGE wrappers and the HySDS workers call Osaka to localize inputs before a job runs and to publish/repository outputs after a job completes. It is a library plus a CLI, not a long-running service.

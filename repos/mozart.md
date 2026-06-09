@@ -8,6 +8,12 @@
 **Repo:** `hysds-core/mozart`
 **Last reviewed:** 2026-06-08
 
+## Architecture diagram
+
+![Mozart core architecture](/img/diagrams/mozart-core-architecture.svg)
+
+*Source: `mozart/mozart_core_architecture.drawio` (draw.io), exported to SVG.*
+
 ## Role in HySDS
 
 Mozart is the central orchestration node of the PCM (Processing Control and Data Management) layer. It is a Flask-based web application that exposes versioned REST APIs (v0.1 and v0.2) for the full job lifecycle: submitting jobs, querying job/queue/worker status, managing job specs and containers, and managing user (trigger) rules. It resolves job parameters via `hysds_commons`, publishes work to RabbitMQ for execution by Verdi workers, and serves as the API backend for `hysds_ui`. Mozart also hosts the orchestrator process that evaluates trigger rules and creates follow-on jobs. (Sources: `ARCHITECTURE_v2.md`, `CLAUDE.md`.)

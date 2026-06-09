@@ -8,6 +8,12 @@
 **Repo:** `hysds-core/grq2`  
 **Last reviewed:** 2026-06-08
 
+## Architecture diagram
+
+![grq2 core architecture](/img/diagrams/grq2-core-architecture.svg)
+
+*Source: `grq2/grq2_core_architecture.drawio.xml` (draw.io), exported to SVG.*
+
 ## Role in HySDS
 
 `grq2` is the HySDS **Data Catalog and Query API** — a Flask web application exposing a RESTful interface for indexing, managing, and searching dataset metadata held in an Elasticsearch or OpenSearch backend. It is the primary mechanism by which new data products are registered with HySDS: a `hysds` `job_worker` that has finished a job POSTs the product metadata to GRQ's dataset-index endpoint. GRQ enriches incoming metadata (most notably reverse geolocation deriving city/continent from coordinates) and provides the search API that the TOSCA UI and other services use to discover datasets. It sits between the job-execution layer (`hysds`/Mozart) and the dataset metadata store (the "GRQ" OpenSearch cluster).

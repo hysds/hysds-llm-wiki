@@ -8,6 +8,12 @@
 **Repo:** `hysds/hysds` (https://github.com/hysds/hysds)  
 **Last reviewed:** 2026-06-08
 
+## Architecture diagram
+
+![HySDS core architecture](/img/diagrams/hysds-core-architecture.svg)
+
+*Source: `hysds/.claude/hysds_core_architecture.drawio` (draw.io), exported to SVG. See [System architecture & flows](../architecture.md) for the cluster-wide topology and job/data flow diagrams.*
+
 ## Role in HySDS
 
 `hysds` is the core component of the Hybrid Cloud Science Data System. It is a distributed job execution framework built on Celery that processes both lightweight Python tasks and complex containerized scientific workflows (PGEs). It provides the orchestrator (job routing, validation, deduplication), the job worker (containerized PGE lifecycle), the task worker (lightweight function execution), event processors, user-rule evaluation, and the pluggable container engine layer.

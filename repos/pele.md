@@ -8,6 +8,12 @@
 **Repo:** `hysds-core/pele`  
 **Last reviewed:** 2026-06-08
 
+## Architecture diagram
+
+![Pele core architecture](/img/diagrams/pele-core-architecture.svg)
+
+*Source: `pele/pele_core_architecture.drawio.xml` (draw.io), exported to SVG.*
+
 ## Role in HySDS
 
 Pele is the Flask-based REST API that serves two distinct functions in the PCM

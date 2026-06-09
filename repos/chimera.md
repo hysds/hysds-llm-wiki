@@ -8,6 +8,12 @@
 **Repo:** `hysds-core/chimera`  
 **Last reviewed:** 2026-06-08
 
+## Architecture diagram
+
+![Chimera core architecture](/img/diagrams/chimera-core-architecture.svg)
+
+*Source: `chimera/chimera_core_architecture.drawio.xml` (draw.io), exported to SVG.*
+
 ## Role in HySDS
 
 Chimera is a generalized workflow skeleton that lets any HySDS project run a Product Generation Executable (PGE) through three composable steps: **input preprocessing**, **PGE execution**, and **post-processing**. It sits between incoming data events and Mozart job submission, evaluating preconditions (e.g., data availability in the GRQ catalog) before constructing and submitting a HySDS job. It is implemented using the SciFlo workflow infrastructure integrated with the HySDS framework and is designed to be adapted per-project via configuration and subclassing rather than code forks.

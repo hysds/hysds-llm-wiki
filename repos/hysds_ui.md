@@ -8,6 +8,12 @@
 **Repo:** `hysds/hysds_ui`
 **Last reviewed:** 2026-06-08
 
+## Architecture diagram
+
+![hysds_ui core architecture](/img/diagrams/hysds_ui-core-architecture.svg)
+
+*Source: `hysds_ui/hysds_ui_core_architecture.drawio.xml` (draw.io), exported to SVG.*
+
 ## Role in HySDS
 
 `hysds_ui` is the client-side, browser-based GUI for the HySDS PCM. It is a
