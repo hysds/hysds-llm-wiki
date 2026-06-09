@@ -22,6 +22,7 @@ PCM (Processing Control and Data Management) layer.
 | [HySDS UI](repos/hysds_ui.md) | React SPA — primary web interface for dataset discovery (Tosca/GRQ), job monitoring (Figaro/Mozart), on-demand job submission, and user-rules management | P1 | 2026-06-08 |
 | [Mozart](repos/mozart.md) | Central job-orchestration hub: REST API, RabbitMQ, Redis, OpenSearch job-status index | P1 | 2026-06-08 |
 | [Osaka](repos/osaka.md) | Object-Store Abstraction Architecture — pluggable file-transfer library for moving HySDS product files to/from heterogeneous backend storage systems | P1 | 2026-06-08 |
+| [Pele](repos/pele.md) | Flask REST service — central JWT auth authority and PGE catalog (job_specs, hysds-ios, containers) for the HySDS cluster | P1 | 2026-06-08 |
 | [SDS CLI](repos/sdscli.md) | SDS Command-Line Interface — Infrastructure-as-Code tool for provisioning, configuring, deploying, and managing the full HySDS cluster lifecycle | P1 | 2026-06-08 |
 
 ---
