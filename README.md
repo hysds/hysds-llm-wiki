@@ -23,7 +23,9 @@ PCM (Processing Control and Data Management) layer.
 | [Mozart](repos/mozart.md) | Central job-orchestration hub: REST API, RabbitMQ, Redis, OpenSearch job-status index | P1 | 2026-06-08 |
 | [Osaka](repos/osaka.md) | Object-Store Abstraction Architecture — pluggable file-transfer library for moving HySDS product files to/from heterogeneous backend storage systems | P1 | 2026-06-08 |
 | [Pele](repos/pele.md) | Flask REST service — central JWT auth authority and PGE catalog (job_specs, hysds-ios, containers) for the HySDS cluster | P1 | 2026-06-08 |
+| [PROV-ES](repos/prov_es.md) | Provenance for Earth Science — Python library implementing W3C PROV-DM data model for Earth Science metadata provenance; used by chimera and hysds workers to record job/product provenance | P1 | 2026-06-08 |
 | [SDS CLI](repos/sdscli.md) | SDS Command-Line Interface — Infrastructure-as-Code tool for provisioning, configuring, deploying, and managing the full HySDS cluster lifecycle | P1 | 2026-06-08 |
+| [SciFlo](repos/sciflo.md) | SciFlo workflow framework and engine — XML-defined DAG workflow executor that underpins chimera's PGE job execution via run_sciflo.py | P1 | 2026-06-08 |
 
 ---
 
