@@ -7,8 +7,11 @@ const config = {
   tagline: 'Architecture decisions, service catalog, and risk register',
   favicon: 'img/favicon.ico',
 
-  url: 'https://hysds.local',
-  baseUrl: '/',
+  url: 'https://hysds.github.io',
+  baseUrl: '/hysds-llm-wiki/',
+  organizationName: 'hysds',
+  projectName: 'hysds-llm-wiki',
+  trailingSlash: false,
 
   onBrokenLinks: 'warn',
   onBrokenAnchors: 'warn',
